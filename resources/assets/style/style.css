@@ -1,0 +1,6 @@
+@import "base.theme/_import.less";
+@import "uikit.css";
+
+body {
+    background-color: red;
+}

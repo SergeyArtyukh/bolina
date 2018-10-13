@@ -1,0 +1,2160 @@
+// Breakpoints
+// ========================================================================
+
+// Phone Portrait:   Galaxy (360x640), iPhone 6 (375x667), iPhone 6+ (414x736)
+// Phone Landscape:  Galaxy (640x360), iPhone 6 (667x375), iPhone 6+ (736x414)
+// Tablet Portrait:  iPad (768x1024), Galaxy Tab (800x1280),
+// Tablet Landscape: iPad (1024x768), iPad Pro (1024x1366),
+// Desktop:          Galaxy Tab (1280x800), iPad Pro (1366x1024)
+
+@breakpoint-mini:                              320px;
+@breakpoint-small:                             640px;  // Phone landscape
+@breakpoint-medium:                            960px;  // Tablet Landscape
+@breakpoint-large:                             1170px; // Desktop
+@breakpoint-xlarge:                            1600px; // Large Screens
+
+@breakpoint-mini-max:                          (@breakpoint-mini - 1);
+@breakpoint-xsmall-max:                        (@breakpoint-small - 1);
+@breakpoint-small-max:                         (@breakpoint-medium - 1);
+@breakpoint-medium-max:                        (@breakpoint-large - 1);
+@breakpoint-large-max:                         (@breakpoint-xlarge - 1);
+
+// Global variables
+// ========================================================================
+
+//
+// Typography
+//
+
+@global-font-family:                            -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+@global-font-size:                              14px;
+@global-line-height:                            1.5;      // 24px
+
+@global-xxlarge-font-size:                      2.625rem; // 42px
+@global-xlarge-font-size:                       1.8rem;     // 32px
+@global-large-font-size:                        1.5rem;   // 24px
+@global-medium-font-size:                       1.25rem;  // 20px
+@global-small-font-size:                        0.925rem; // 14px
+
+//
+// Colors
+//
+
+@global-color: #222;
+@global-emphasis-color: #172B4D;
+@global-muted-color: #707070;
+@global-disabled-color: #a5adba;
+@global-burn-color: #505F79;
+
+@global-link-color: #0052CC;
+@global-link-hover-color: #0f6ecd;
+@global-inverse-color: #fff;
+
+@global-success-color: #39b118;
+@global-danger-color: #f34720;
+
+@global-medium-neutral-color: #6B778C;
+
+//
+// Backgrounds
+//
+
+@global-background: #fff;
+@global-default-background: #F4F5F7;
+@global-default-background-hover: #EBECF0;
+@global-default-background-focus: #DEEBFF;
+@global-default-background-active: #42526E;
+
+@global-muted-background: rgba(9, 30, 66, .04);
+@global-primary-background: #1c61c7;
+@global-secondary-background: #222;
+@global-success-background: #36B37E;
+@global-danger-background: #FF5630;
+@global-warning-background: #FFAB00;
+@global-juice-background: #6554C0;
+
+@global-burn-background: #EBECF0;
+@global-emphasis-background: #172B4D;
+@global-palette-background: #42526E;
+
+@global-success-light-background: rgba(54, 179, 126, 0.15);
+
+//
+// Borders
+//
+
+@global-border-radius: 3px;
+@global-border-width: 1px;
+@global-border: #e6eaee; // e6eaee || ccc
+
+//
+// Box shadow
+//
+
+@global-small-box-shadow:                       0 2px 8px rgba(0,0,0,0.08);
+@global-medium-box-shadow:                      0 5px 15px rgba(0,0,0,0.08);
+@global-large-box-shadow:                       0 14px 25px rgba(0,0,0,0.16);
+@global-xlarge-box-shadow:                      0 28px 50px rgba(0,0,0,0.16);
+@global-default-box-shadow:                     0 1px 5px rgba(0, 0, 0, 0.1);
+@global-border-box-shadow:                      rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px;
+
+//
+// Spacings
+//
+
+// Used in margin, section, list
+@global-margin: 20px;
+@global-mini-margin: 5px;
+@global-small-margin: 10px;
+@global-medium-margin: 30px;
+@global-large-margin: 40px;
+@global-xlarge-margin: 60px;
+
+// Used in grid, column, container, align, card, padding
+@global-gutter: 20px;
+@global-mini-gutter: 5px;
+@global-small-gutter: 10px;
+@global-medium-gutter: 30px;
+@global-large-gutter: 40px;
+@global-xlarge-gutter: 60px;
+
+//
+// Controls
+//
+
+@global-control-height: 30px;
+@global-control-small-height: 24px;
+@global-control-large-height: 46px;
+
+//
+// Z-index
+//
+
+@global-z-index:                                1000;
+
+// Component: Mixin
+// ========================================================================
+
+
+
+// Component: Base
+// ========================================================================
+
+@base-body-background:                          @global-background;
+@base-body-font-family:                         @global-font-family;
+@base-body-font-weight:                         normal;
+@base-body-font-size:                           @global-font-size;
+@base-body-line-height:                         @global-line-height;
+@base-body-color:                               @global-color;
+
+@base-link-color:                               @global-link-color;
+@base-link-text-decoration:                     none;
+@base-link-hover-color:                         @global-link-hover-color;
+@base-link-hover-text-decoration:               underline;
+
+@base-strong-font-weight:                       bolder;
+@base-code-font-size:                           @global-small-font-size;
+@base-code-font-family:                         Consolas, monaco, monospace;
+@base-code-color:                               @global-danger-background;
+@base-code-padding-horizontal:                  6px;
+@base-code-padding-vertical:                    2px;
+@base-code-background:                          @global-muted-background;
+@base-em-color:                                 @global-danger-background;
+@base-ins-background:                           #ffd;
+@base-ins-color:                                @global-color;
+@base-mark-background:                          #ffd;
+@base-mark-color:                               @global-color;
+@base-quote-font-style:                         italic;
+@base-small-font-size:                          80%;
+
+@base-margin-vertical:                          @global-margin;
+
+@base-heading-font-family:                      @global-font-family;
+@base-heading-font-weight:                      normal;
+@base-heading-color:                            @global-emphasis-color;
+@base-heading-text-transform:                   none;
+@base-heading-margin-top:                       @global-medium-margin;
+@base-h1-font-size:                             @global-xxlarge-font-size;
+@base-h1-line-height:                           1.2;
+@base-h2-font-size:                             @global-xlarge-font-size;
+@base-h2-line-height:                           1.3;
+@base-h3-font-size:                             @global-large-font-size;
+@base-h3-line-height:                           1.4;
+@base-h4-font-size:                             @global-medium-font-size;
+@base-h4-line-height:                           1.4;
+@base-h5-font-size:                             @global-font-size;
+@base-h5-line-height:                           1.4;
+@base-h6-font-size:                             @global-small-font-size;
+@base-h6-line-height:                           1.4;
+
+@base-list-padding-left:                        30px;
+
+@base-hr-margin-vertical:                       @global-margin;
+@base-hr-border-width:                          @global-border-width;
+@base-hr-border:                                @global-border;
+
+@base-blockquote-color:                         @global-emphasis-color;
+@base-blockquote-font-size:                     @global-medium-font-size;
+@base-blockquote-line-height:                   1.5;
+@base-blockquote-font-style:                    italic;
+@base-blockquote-margin-vertical:               @global-margin;
+@base-blockquote-footer-margin-top:             @global-small-margin;
+@base-blockquote-footer-font-size:              @global-small-font-size;
+@base-blockquote-footer-line-height:            1.5;
+@base-blockquote-footer-color:                  @global-color;
+
+@base-pre-font-size:                            @global-small-font-size;
+@base-pre-line-height:                          1.5;
+@base-pre-font-family:                          @base-code-font-family;
+@base-pre-color:                                @global-color;
+@base-pre-padding:                              10px;
+@base-pre-background:                           @global-background;
+@base-pre-border-width:                         @global-border-width;
+@base-pre-border:                               @global-border;
+@base-pre-border-radius:                        3px;
+
+@base-selection-background:                     #39f;
+@base-selection-color:                          @global-inverse-color;
+
+// Component: Link
+// ========================================================================
+
+// Component:       `uk-link-muted`
+//                  `uk-link-text`
+//                  `uk-link-heading`
+//                  `uk-link-reset`
+
+@link-muted-color:                              @global-muted-color;
+@link-muted-hover-color:                        @global-color;
+
+@link-text-hover-color:                         @global-muted-color;
+
+@link-heading-hover-color:                      @global-primary-background;
+@link-heading-hover-text-decoration:            none;
+
+// Component: Heading
+// ========================================================================
+
+// Component:       `uk-heading-primary`
+//                  `uk-heading-hero`
+//                  `uk-heading-divider`
+//                  `uk-heading-bullet`
+//                  `uk-heading-line`
+
+@heading-primary-font-size:                     @global-xxlarge-font-size;
+@heading-primary-line-height:                   1.2;
+
+@heading-primary-font-size-m:                   3.75rem; // 54px
+@heading-primary-line-height-m:                 1.1;
+
+@heading-hero-font-size:                        4rem; // 64px
+@heading-hero-line-height:                      1.1;
+
+@heading-hero-font-size-s:                      6rem; // 96px
+@heading-hero-line-height-s:                    1;
+
+@heading-hero-font-size-m:                      8rem; // 128px
+@heading-hero-line-height-m:                    1;
+
+@heading-divider-padding-bottom:                10px;
+@heading-divider-border-width:                  @global-border-width;
+@heading-divider-border:                        @global-border;
+
+@heading-bullet-top:                            ~'calc(-0.1 * 1em)';
+@heading-bullet-height:                         0.9em;
+@heading-bullet-margin-right:                   10px;
+@heading-bullet-border-width:                   5px;
+@heading-bullet-border:                         @global-border;
+
+@heading-line-top:                              50%;
+@heading-line-height:                           @heading-line-border-width;
+@heading-line-width:                            2000px;
+@heading-line-border-width:                     @global-border-width;
+@heading-line-border:                           @global-border;
+@heading-line-margin-horizontal:                0.6em;
+
+// Component: Divider
+// ========================================================================
+
+// Component:       `uk-divider-icon`
+//                  `uk-divider-small`
+
+@divider-margin-vertical:                       @global-margin;
+
+@divider-icon-width:                            50px;
+@divider-icon-height:                           20px;
+@divider-icon-color:                            @global-border;
+@divider-icon-line-top:                         50%;
+@divider-icon-line-width:                       100%;
+@divider-icon-line-border-width:                @global-border-width;
+@divider-icon-line-border:                      @global-border;
+
+@internal-divider-icon-image:                   "../../images/backgrounds/divider-icon.svg";
+
+@divider-small-width:                           100px;
+@divider-small-border-width:                    @global-border-width;
+@divider-small-border:                          @global-border;
+
+// Component: List
+// ========================================================================
+
+// Component:       `uk-list`
+//
+// Modifiers:       `uk-list-divider`
+//                  `uk-list-striped`
+//                  `uk-list-bullet`
+//                  `uk-list-large`
+
+@list-margin-top:                               @global-small-margin;
+
+@list-nested-padding-left:                      @global-gutter;
+
+@list-divider-margin-top:                       @global-small-margin;
+@list-divider-border-width:                     @global-border-width;
+@list-divider-border:                           @global-border;
+
+@list-striped-padding-vertical:                 @global-small-margin;
+@list-striped-padding-horizontal:               @global-small-margin;
+@list-striped-background:                       @global-muted-background;
+@list-striped-border-width:                     @global-border-width;
+@list-striped-border:                           @global-border;
+
+@list-bullet-width:                             (@global-line-height * 1em);
+@list-bullet-height:                            @list-bullet-width;
+@list-bullet-margin-right:                      @global-small-margin;
+@list-bullet-icon-color:                        @global-color;
+
+@list-large-margin-top:                         @global-margin;
+@list-large-divider-margin-top:                 @global-margin;
+@list-large-striped-padding-vertical:           @global-margin;
+@list-large-striped-padding-horizontal:         @global-small-margin;
+
+@internal-list-bullet-image:                    "../../images/backgrounds/list-bullet.svg";
+
+// Component: Description-list
+// ========================================================================
+
+// Component:       `uk-description-list`
+//
+// Modifiers:       `uk-description-list-divider`
+
+@description-list-term-font-size:               @global-small-font-size;
+@description-list-term-font-weight:             normal;
+@description-list-term-text-transform:          uppercase;
+@description-list-term-color:                   @global-emphasis-color;
+@description-list-term-margin-top:              @global-margin;
+
+@description-list-divider-term-margin-top:      @global-margin;
+@description-list-divider-term-border-width:    @global-border-width;
+@description-list-divider-term-border:          @global-border;
+
+// Component: Table
+// ========================================================================
+
+// Component:       `uk-table`
+//
+// Modifiers:       `uk-table-middle`
+//                  `uk-table-divider`
+//                  `uk-table-striped`
+//                  `uk-table-hover`
+//                  `uk-table-small`
+//                  `uk-table-justify`
+//                  `uk-table-shrink`
+//                  `uk-table-expand`
+//                  `uk-table-link`
+//                  `uk-table-responsive`
+//
+// States:          `uk-active`
+
+@table-margin-vertical:                         @global-margin;
+
+@table-cell-padding-vertical:                   12px;
+@table-cell-padding-horizontal:                 5px;
+
+@table-header-cell-font-size:                   @global-small-font-size;
+@table-header-cell-font-weight:                 normal;
+@table-header-cell-color:                       @global-muted-color;
+
+@table-footer-font-size:                        @global-small-font-size;
+
+@table-caption-font-size:                       @global-small-font-size;
+@table-caption-color:                           @global-muted-color;
+
+@table-row-active-background:                   #ffd;
+
+@table-divider-border-width:                    @global-border-width;
+@table-divider-border:                          @global-border;
+
+@table-striped-row-background:                  @global-muted-background;
+@table-striped-border-width:                    1px;
+@table-striped-border:                          @global-border;
+
+@table-hover-row-background:                    @table-row-active-background;
+
+@table-small-cell-padding-vertical:             10px;
+@table-small-cell-padding-horizontal:           12px;
+
+@table-large-cell-padding-vertical:             22px;
+@table-large-cell-padding-horizontal:           12px;
+
+@table-expand-min-width:                        150px;
+
+// Component: Icon
+// ========================================================================
+
+// Component:       `uk-icon`
+//
+// Modifiers:       `uk-icon-image`
+//                  `uk-icon-link`
+//                  `uk-icon-button`
+//
+// States:          `uk-preserve`
+
+@icon-image-size:                               20px;
+
+@icon-link-color:                               @global-muted-color;
+@icon-link-hover-color:                         @global-color;
+@icon-link-active-color:                        darken(@global-color, 5%);
+
+@icon-button-size:                              36px;
+@icon-button-border-radius:                     500px;
+@icon-button-background:                        @global-muted-background;
+@icon-button-color:                             @global-muted-color;
+
+@icon-button-hover-background:                  darken(@icon-button-background, 5%);
+@icon-button-hover-color:                       @global-color;
+
+@icon-button-active-background:                 darken(@icon-button-background, 10%);
+@icon-button-active-color:                      @global-color;
+
+// Component: Form-range
+// ========================================================================
+
+// Component:       `uk-range`
+
+@form-range-thumb-height:                       15px;
+@form-range-thumb-border-radius:                500px;
+@form-range-thumb-background:                   @global-background;
+@form-range-thumb-border-width:                 @global-border-width;
+@form-range-thumb-border:                       darken(@global-border, 10%);
+
+@form-range-track-height:                       3px;
+@form-range-track-background:                   darken(@global-muted-background, 5%);
+@form-range-track-focus-background:             darken(@global-muted-background, 15%);
+@form-range-track-border-radius:                500px;
+
+// Component: Form
+// ========================================================================
+
+// Component:       `uk-form-*`
+//                  `uk-input`
+//                  `uk-select`
+//                  `uk-textarea`
+//                  `uk-radio`
+//                  `uk-checkbox`
+//                  `uk-legend`
+//                  `uk-fieldset`
+//
+// Sub-objects:     `uk-form-custom`
+//                  `uk-form-stacked`
+//                  `uk-form-horizontal`
+//                  `uk-form-label`
+//                  `uk-form-controls`
+//                  `uk-form-icon`
+//                  `uk-form-icon-flip`
+//
+// Modifiers:       `uk-form-small`
+//                  `uk-form-large`
+//                  `uk-form-danger`
+//                  `uk-form-success`
+//                  `uk-form-blank`
+//                  `uk-form-width-xsmall`
+//                  `uk-form-width-small`
+//                  `uk-form-width-medium`
+//                  `uk-form-width-large`
+//                  `uk-form-controls-text`
+
+@form-height:                                   @global-control-height;
+@form-line-height:                              @form-height - (2 * @form-border-width);
+@form-padding-horizontal:                       10px;
+@form-padding-vertical:                         4px;
+
+@form-background:                               @global-background;
+@form-color:                                    @global-color;
+@form-border-width:                             @global-border-width;
+@form-border:                                   @global-border;
+
+@form-focus-background:                         @global-background;
+@form-focus-color:                              @global-color;
+@form-focus-border:                             @global-primary-background;
+
+@form-disabled-background:                      @global-muted-background;
+@form-disabled-color:                           @global-muted-color;
+@form-disabled-border:                          @global-border;
+
+@form-placeholder-color:                        @global-muted-color;
+
+@form-small-height:                             @global-control-small-height;
+@form-small-padding-horizontal:                 8px;
+@form-small-line-height:                        @form-small-height - (2 * @form-border-width);
+@form-small-font-size:                          @global-small-font-size;
+
+@form-large-height:                             @global-control-large-height;
+@form-large-padding-horizontal:                 12px;
+@form-large-line-height:                        @form-large-height - (2 * @form-border-width);
+@form-large-font-size:                          @global-medium-font-size;
+
+@form-danger-border:                            @global-danger-background;
+@form-danger-color:                             @global-danger-background;
+@form-success-border:                           @global-success-background;
+@form-success-color:                            @global-success-background;
+
+@form-blank-focus-border:                       @global-border;
+@form-blank-focus-border-style:                 dashed;
+
+@form-width-xsmall:                             50px;
+@form-width-small:                              130px;
+@form-width-medium:                             200px;
+@form-width-large:                              500px;
+
+@form-select-padding-right:                     20px;
+@form-select-icon-color:                        @global-color;
+@form-select-disabled-icon-color:               @global-muted-color;
+
+@form-radio-size:                               16px;
+@form-radio-margin-top:                         -3px;
+@form-radio-background:                         transparent;
+@form-radio-border-width:                       @global-border-width;
+@form-radio-border:                             darken(@global-border, 10%);
+
+@form-radio-focus-border:                       @global-primary-background;
+
+@form-radio-checked-border:                     transparent;
+@form-radio-checked-background:                 @global-primary-background;
+@form-radio-checked-icon-color:                 @global-inverse-color;
+
+@form-radio-checked-focus-background:           darken(@global-primary-background, 10%);
+
+@form-radio-disabled-border:                    @global-border;
+@form-radio-disabled-background:                @global-muted-background;
+@form-radio-disabled-icon-color:                @global-muted-color;
+
+@form-label-color:                              @global-emphasis-color;
+@form-label-font-size:                          @global-font-size;
+
+@form-legend-font-size:                         @global-large-font-size;
+@form-legend-line-height:                       1.4;
+
+@form-stacked-margin-bottom:                    @global-mini-margin;
+
+@form-horizontal-label-width:                   200px;
+@form-horizontal-label-margin-top:              7px;
+@form-horizontal-controls-margin-left:          215px;
+@form-horizontal-controls-text-padding-top:     7px;
+
+@form-icon-width:                               @form-height;
+@form-icon-font-size:                           @global-font-size;
+@form-icon-color:                               @global-muted-color;
+@form-icon-hover-color:                         @global-color;
+
+@form-primary-shadow: 0 0 0 2px lighten(@global-primary-background, 40%);
+@form-success-shadow: 0 0 0 2px lighten(@global-success-background, 40%);
+@form-warning-shadow: 0 0 0 2px lighten(@global-warning-background, 40%);
+@form-danger-shadow: 0 0 0 2px lighten(@global-danger-background, 35%);
+@form-juice-shadow: 0 0 0 2px lighten(@global-juice-background, 40%);
+
+@internal-form-select-image:                     "../../images/backgrounds/form-select.svg";
+@internal-form-radio-image:                      "../../images/backgrounds/form-radio.svg";
+@internal-form-checkbox-image:                   "../../images/backgrounds/form-checkbox.svg";
+@internal-form-checkbox-indeterminate-image:     "../../images/backgrounds/form-checkbox-indeterminate.svg";
+
+// Component: Button
+// ========================================================================
+
+// Component:       `uk-button`
+//
+// Sub-objects:     `uk-button-group`
+//
+// Modifiers:       `uk-button-default`
+//                  `uk-button-primary`
+//                  `uk-button-secondary`
+//                  `uk-button-danger`
+//                  `uk-button-text`
+//                  `uk-button-link`
+//                  `uk-button-small`
+//                  `uk-button-large`
+//
+// States:          `uk-active`
+
+@button-line-height:                            @global-control-height - (@button-border-width * 2);
+@button-small-line-height:                      @global-control-small-height - (@button-border-width * 2);
+@button-large-line-height:                      @global-control-large-height - (@button-border-width * 2);
+
+@button-font-size:                              @global-font-size;
+@button-small-font-size:                        @global-small-font-size;
+@button-large-font-size:                        @global-medium-font-size;
+
+@button-padding-horizontal:                     @global-gutter - 5;
+@button-small-padding-horizontal:               @global-small-gutter;
+@button-large-padding-horizontal:               @global-medium-gutter;
+
+@button-default-background:                     @global-default-background;
+@button-default-color:                          @global-emphasis-color;
+@button-default-hover-background:               @global-default-background-hover;
+@button-default-hover-color:                    @global-emphasis-color;
+@button-default-focus-background:               @global-default-background-focus;
+@button-default-active-background:              @global-default-background-active;
+@button-default-active-color:                   @global-primary-background;
+
+@button-primary-background:                     @global-primary-background;
+@button-primary-color:                          @global-inverse-color;
+@button-primary-hover-background:               darken(@button-primary-background, 5%);
+@button-primary-hover-color:                    @global-inverse-color;
+@button-primary-active-background:              darken(@button-primary-background, 10%);
+@button-primary-active-color:                   @global-inverse-color;
+
+@button-secondary-background:                   @global-secondary-background;
+@button-secondary-color:                        @global-inverse-color;
+@button-secondary-hover-background:             darken(@button-secondary-background, 5%);
+@button-secondary-hover-color:                  @global-inverse-color;
+@button-secondary-active-background:            darken(@button-secondary-background, 10%);
+@button-secondary-active-color:                 @global-inverse-color;
+
+@button-success-background:                     @global-success-background;
+@button-success-color:                          @global-inverse-color;
+@button-success-hover-background:               darken(@button-success-background, 5%);
+@button-success-hover-color:                    @global-inverse-color;
+@button-success-active-background:              darken(@button-success-background, 10%);
+@button-success-active-color:                   @global-inverse-color;
+
+@button-warning-background:                     @global-warning-background;
+@button-warning-color:                          @global-color;
+@button-warning-hover-background:               darken(@button-warning-background, 5%);
+@button-warning-hover-color:                    @global-color;
+@button-warning-active-background:              darken(@button-warning-background, 10%);
+@button-warning-active-color:                   @global-color;
+
+@button-danger-background:                      @global-danger-background;
+@button-danger-color:                           @global-inverse-color;
+@button-danger-hover-background:                darken(@button-danger-background, 5%);
+@button-danger-hover-color:                     @global-inverse-color;
+@button-danger-active-background:               darken(@button-danger-background, 10%);
+@button-danger-active-color:                    @global-inverse-color;
+
+@button-juice-background:                       @global-juice-background;
+@button-juice-color:                            @global-inverse-color;
+@button-juice-hover-background:                 darken(@button-juice-background, 5%);
+@button-juice-hover-color:                      @global-inverse-color;
+@button-juice-active-background:                darken(@button-juice-background, 10%);
+@button-juice-active-color:                     @global-inverse-color;
+
+@button-disabled-background:                    rgba(9, 30, 66, 0.04);
+@button-disabled-color:                         #a5adba;
+@button-disabled-border:                        transparent;
+
+@button-text-transform:                         none;
+@button-text-line-height:                       @global-line-height;
+@button-text-color:                             @global-emphasis-color;
+@button-text-hover-color:                       @global-emphasis-color;
+@button-text-disabled-color:                    @global-muted-color;
+@button-text-border-width:                      @global-border-width;
+@button-text-border:                            @button-text-hover-color;
+
+@button-border-color:                           transparent;
+@button-border-width:                           @global-border-width;
+@button-border-radius:                          @global-border-radius;
+
+@button-default-border:                         @global-border;
+@button-default-hover-border:                   darken(@global-border, 20%);
+@button-default-active-border:                  darken(@global-border, 30%);
+
+@button-link-line-height:                       @global-line-height;
+@button-link-color:                             @global-link-color;
+@button-link-hover-color:                       @global-link-hover-color;
+@button-link-hover-text-decoration:             underline;
+@button-link-disabled-color:                    @global-muted-color;
+
+// Component: Toggle
+// ========================================================================
+
+@toggle-default-width: 50px;
+@toggle-default-height: 24px;
+@toggle-default-space: 2px;
+@toggle-default-background: #6b778c;
+
+@toggle-small-width: 32px;
+@toggle-small-height: 16px;
+@toggle-small-space: 2px;
+
+@toggle-large-width: 64px;
+@toggle-large-height: 32px;
+@toggle-large-space: 2px;
+
+// Component: Section
+// ========================================================================
+
+// Component:       `uk-section`
+//
+// Modifiers:       `uk-section-xsmall`
+//                  `uk-section-small`
+//                  `uk-section-large`
+//                  `uk-section-xlarge`
+//                  `uk-section-default`
+//                  `uk-section-muted`
+//                  `uk-section-primary`
+//                  `uk-section-secondary`
+//                  `uk-section-overlap`
+//
+// States:          `uk-preserve-color`
+
+@section-padding-vertical:                      @global-medium-margin;
+@section-padding-vertical-m:                    @global-large-margin;
+
+@section-xsmall-padding-vertical:               @global-margin;
+
+@section-small-padding-vertical:                @global-medium-margin;
+
+@section-large-padding-vertical:                @global-large-margin;
+@section-large-padding-vertical-m:              @global-xlarge-margin;
+
+@section-xlarge-padding-vertical:               @global-xlarge-margin;
+@section-xlarge-padding-vertical-m:             @global-large-margin + @global-xlarge-margin;
+
+@section-default-background:                    @global-background;
+
+@section-muted-background:                      @global-muted-background;
+
+@section-primary-background:                    @global-primary-background;
+@section-primary-color-mode:                    light;
+
+@section-secondary-background:                  @global-secondary-background;
+@section-secondary-color-mode:                  light;
+
+// Component: Container
+// ========================================================================
+
+// Component:       `uk-container`
+//
+// Modifier:        `uk-container-small`
+//                  `uk-container-large`
+//                  `uk-container-expand`
+
+@container-max-width:                           1200px;
+@container-small-max-width:                     900px;
+@container-large-max-width:                     1600px;
+
+@container-padding-horizontal:                  15px;
+@container-padding-horizontal-s:                @global-gutter;
+@container-padding-horizontal-m:                @global-gutter;
+
+// Component: Grid
+// ========================================================================
+
+// Component:       `uk-grid`
+//
+// Modifiers:       `uk-grid-small`
+//                  `uk-grid-medium`
+//                  `uk-grid-large`
+//                  `uk-grid-collapse`
+//                  `uk-grid-divider`
+//                  `uk-grid-match`
+//                  `uk-grid-stack`
+//                  `uk-grid-margin`
+//                  `uk-grid-margin-small`
+//                  `uk-grid-margin-medium`
+//                  `uk-grid-margin-large`
+//                  `uk-grid-margin-collapse`
+//
+// Sub-modifier:    `uk-grid-item-match`
+//
+// States:          `uk-first-column`
+
+@grid-gutter-horizontal:                        @global-gutter;
+@grid-gutter-vertical:                          @grid-gutter-horizontal;
+@grid-gutter-horizontal-l:                      @global-gutter;
+@grid-gutter-vertical-l:                        @grid-gutter-horizontal-l;
+
+@grid-small-gutter-horizontal:                  @global-small-gutter;
+@grid-small-gutter-vertical:                    @grid-small-gutter-horizontal;
+
+@grid-medium-gutter-horizontal:                 @global-gutter;
+@grid-medium-gutter-vertical:                   @grid-medium-gutter-horizontal;
+
+@grid-large-gutter-horizontal:                  @global-medium-gutter;
+@grid-large-gutter-vertical:                    @grid-large-gutter-horizontal;
+@grid-large-gutter-horizontal-l:                @global-large-gutter;
+@grid-large-gutter-vertical-l:                  @grid-large-gutter-horizontal-l;
+
+@grid-divider-border-width:                     @global-border-width;
+@grid-divider-border:                           @global-border;
+
+// Component: Tile
+// ========================================================================
+
+// Component:       `uk-tile`
+//
+// Modifiers:       `uk-tile-xsmall`
+//                  `uk-tile-small`
+//                  `uk-tile-large`
+//                  `uk-tile-xlarge`
+//                  `uk-tile-default`
+//                  `uk-tile-muted`
+//                  `uk-tile-primary`
+//                  `uk-tile-secondary`
+//
+// States:          `uk-preserve-color`
+
+@tile-padding-horizontal:                      15px;
+@tile-padding-horizontal-s:                    @global-gutter;
+@tile-padding-horizontal-m:                    @global-medium-gutter;
+@tile-padding-vertical:                        @global-medium-margin;
+@tile-padding-vertical-m:                      @global-large-margin;
+
+@tile-xsmall-padding-vertical:                 @global-margin;
+
+@tile-small-padding-vertical:                  @global-medium-margin;
+
+@tile-large-padding-vertical:                  @global-large-margin;
+@tile-large-padding-vertical-m:                @global-xlarge-margin;
+
+@tile-xlarge-padding-vertical:                 @global-xlarge-margin;
+@tile-xlarge-padding-vertical-m:               (@global-large-margin + @global-xlarge-margin);
+
+@tile-default-background:                      @global-background;
+
+@tile-muted-background:                        @global-muted-background;
+
+@tile-primary-background:                      @global-primary-background;
+@tile-primary-color-mode:                      light;
+
+@tile-secondary-background:                    @global-secondary-background;
+@tile-secondary-color-mode:                    light;
+
+// Component: Card
+// ========================================================================
+
+// Component:       `uk-card`
+//
+// Sub-objects:     `uk-card-body`
+//                  `uk-card-header`
+//                  `uk-card-footer`
+//                  `uk-card-media-*`
+//                  `uk-card-title`
+//                  `uk-card-badge`
+//
+// Modifiers:       `uk-card-hover`
+//                  `uk-card-default`
+//                  `uk-card-primary`
+//                  `uk-card-secondary`
+//                  `uk-card-small`
+//                  `uk-card-large`
+//
+// Uses:            `uk-grid-stack`
+
+@card-body-padding-horizontal:                 @global-gutter;
+@card-body-padding-vertical:                   @global-gutter;
+
+@card-body-padding-horizontal-l:               @global-medium-gutter;
+@card-body-padding-vertical-l:                 @global-medium-gutter;
+
+@card-header-padding-horizontal:               @global-gutter;
+@card-header-padding-vertical:                 round(@global-gutter / 2);
+
+@card-header-padding-horizontal-l:             @global-medium-gutter;
+@card-header-padding-vertical-l:               round(@global-medium-gutter / 2);
+
+@card-footer-padding-horizontal:               @global-gutter;
+@card-footer-padding-vertical:                 (@global-gutter / 2);
+
+@card-footer-padding-horizontal-l:             @global-medium-gutter;
+@card-footer-padding-vertical-l:               round(@global-medium-gutter / 2);
+
+@card-title-font-size:                         @global-large-font-size;
+@card-title-line-height:                       1.4;
+
+@card-badge-top:                               @global-gutter;
+@card-badge-right:                             @card-badge-top;
+
+@card-hover-background:                        @global-background;
+@card-hover-box-shadow:                        @global-large-box-shadow;
+
+@card-default-background:                      @global-muted-background;
+@card-default-color:                           @global-color;
+@card-default-title-color:                     @global-emphasis-color;
+@card-default-hover-background:                darken(@card-default-background, 5%);
+@card-default-box-shadow:                      @global-medium-box-shadow;
+@card-default-hover-box-shadow:                @global-large-box-shadow;
+
+@card-default-header-border-width:             @global-border-width;
+@card-default-header-border:                   @global-border;
+
+@card-default-footer-border-width:             @global-border-width;
+@card-default-footer-border:                   @global-border;
+
+@card-primary-background:                      @global-primary-background;
+@card-primary-color:                           @global-inverse-color;
+@card-primary-title-color:                     @card-primary-color;
+@card-primary-hover-background:                @card-primary-background;
+@card-primary-color-mode:                      light;
+@card-primary-box-shadow:                      @global-medium-box-shadow;
+@card-primary-hover-box-shadow:                @global-large-box-shadow;
+
+@card-secondary-background:                    @global-secondary-background;
+@card-secondary-color:                         @global-inverse-color;
+@card-secondary-title-color:                   @card-secondary-color;
+@card-secondary-hover-background:              @card-secondary-background;
+@card-secondary-color-mode:                    light;
+@card-secondary-box-shadow:                    @global-medium-box-shadow;
+@card-secondary-hover-box-shadow:              @global-large-box-shadow;
+
+@card-small-body-padding-horizontal:           @global-margin;
+@card-small-body-padding-vertical:             @global-margin;
+@card-small-header-padding-horizontal:         @global-margin;
+@card-small-header-padding-vertical:           round(@global-margin / 1.5);
+@card-small-footer-padding-horizontal:         @global-margin;
+@card-small-footer-padding-vertical:           round(@global-margin / 1.5);
+
+@card-large-body-padding-horizontal-l:         @global-large-gutter;
+@card-large-body-padding-vertical-l:           @global-large-gutter;
+@card-large-header-padding-horizontal-l:       @global-large-gutter;
+@card-large-header-padding-vertical-l:         round(@global-large-gutter / 2);
+@card-large-footer-padding-horizontal-l:       @global-large-gutter;
+@card-large-footer-padding-vertical-l:         round(@global-large-gutter / 2);
+
+// Component: Close
+// ========================================================================
+
+// Component:       `uk-close`
+
+@close-color:                                  @global-muted-color;
+@close-hover-color:                            @global-color;
+
+// Component: Spinner
+// ========================================================================
+
+// Component:       `uk-spinner`
+
+@spinner-size:                                  30px;
+@spinner-stroke-width:                          1;
+@spinner-radius:                                floor((@spinner-size - @spinner-stroke-width) / 2); // Minus stroke width to prevent overflow clipping
+@spinner-circumference:                         round(2 * 3.141 * @spinner-radius);
+@spinner-duration:                              1.4s;
+
+// Component: Totop
+// ========================================================================
+
+// Component:       `uk-totop`
+
+@totop-padding:                                 5px;
+@totop-color:                                   @global-muted-color;
+
+@totop-hover-color:                             @global-color;
+
+@totop-active-color:                            @global-emphasis-color;
+
+// Component: Marker
+// ========================================================================
+
+// Component:       `uk-marker`
+
+@marker-padding:                                5px;
+@marker-background:                             @global-secondary-background;
+@marker-color:                                  @global-inverse-color;
+
+@marker-hover-color:                            @global-inverse-color;
+
+// Component: Alert
+// ========================================================================
+
+// Component:       `uk-alert`
+//
+// Adopted:         `uk-alert-close`
+//
+// Modifiers:       `uk-alert-primary`
+//                  `uk-alert-success`
+//                  `uk-alert-warning`
+//                  `uk-alert-danger`
+
+@alert-margin-vertical:                         @global-margin;
+@alert-padding:                                 @global-small-gutter;
+@alert-padding-right:                           @alert-padding + 14px;
+@alert-background:                              @global-muted-background;
+@alert-color:                                   @global-color;
+
+@alert-close-top:                               @alert-padding + 5px;
+@alert-close-right:                             @alert-padding;
+@alert-close-opacity:                           0.4;
+@alert-close-hover-opacity:                     0.8;
+
+@alert-primary-background:                      lighten(tint(@global-primary-background, 40%), 20%);
+@alert-primary-color:                           darken(@global-primary-background, 10%);
+
+@alert-success-background:                      lighten(tint(@global-success-background, 40%), 25%);
+@alert-success-color:                           darken(@global-success-background, 15%);
+
+@alert-warning-background:                      lighten(tint(@global-warning-background, 45%), 15%);
+@alert-warning-color:                           darken(@global-warning-background, 25%);
+
+@alert-danger-background:                       lighten(tint(@global-danger-background, 40%), 20%);
+@alert-danger-color:                            darken(@global-danger-background, 15%);
+
+@alert-juice-background:                        lighten(tint(@global-juice-background, 40%), 20%);
+@alert-juice-color:                             darken(@global-juice-background, 15%);
+
+// Component: Badge
+// ========================================================================
+
+// Component:       `uk-badge`
+
+@badge-size:                                    18px;
+@badge-padding-vertical:                        0;
+@badge-padding-horizontal:                      5px;
+@badge-border-radius:                           @global-border-radius;
+@badge-background:                              darken(@global-muted-background, 10%);
+@badge-color:                                   @global-color;
+@badge-font-size:                               @global-small-font-size;
+
+@badge-hover-color:                             inherit;
+
+@badge-primary-background:                      lighten(tint(@global-primary-background, 50%), 20%);
+@badge-primary-color:                           darken(@global-primary-background, 10%);
+
+@badge-success-background:                      lighten(tint(@global-success-background, 40%), 25%);
+@badge-success-color:                           darken(@global-success-background, 20%);
+
+@badge-warning-background:                      lighten(tint(@global-warning-background, 45%), 15%);
+@badge-warning-color:                           darken(@global-warning-background, 20%);
+
+@badge-danger-background:                       lighten(tint(@global-danger-background, 40%), 20%);
+@badge-danger-color:                            darken(@global-danger-background, 20%);
+
+@badge-juice-background:                        lighten(tint(@global-juice-background, 40%), 20%);
+@badge-juice-color:                             darken(@global-juice-background, 20%);
+
+// Component: Label
+// ========================================================================
+
+// Component:       `uk-label`
+//
+// Modifiers:       `uk-label-success`
+//                  `uk-label-warning`
+//                  `uk-label-danger`
+
+@label-padding-vertical:                        0;
+@label-padding-horizontal:                      @global-small-margin;
+@label-background:                              @global-muted-background;
+@label-line-height:                             @global-line-height;
+@label-font-size:                               @global-small-font-size;
+@label-color:                                   @global-emphasis-color;
+@label-border-radius:                           2px;
+@label-text-transform:                          uppercase;
+
+@label-primary-background:                      @global-primary-background;
+@label-primary-color:                           @global-inverse-color;
+
+@label-success-background:                      @global-success-background;
+@label-success-color:                           @global-inverse-color;
+
+@label-warning-background:                      @global-warning-background;
+@label-warning-color:                           @global-inverse-color;
+
+@label-danger-background:                       @global-danger-background;
+@label-danger-color:                            @global-inverse-color;
+
+@label-juice-background:                        @global-juice-background;
+@label-juice-color:                             @global-inverse-color;
+
+// Component: Overlay
+// ========================================================================
+
+// Component:       `uk-overlay`
+//
+// Adopted:         `uk-overlay-icon`
+//
+// Modifier:        `uk-overlay-default`
+//                  `uk-overlay-primary`
+
+@overlay-padding-horizontal:                    @global-gutter;
+@overlay-padding-vertical:                      @global-gutter;
+
+@overlay-default-background:                    fade(@global-background, 80%);
+
+@overlay-primary-background:                    fade(@global-secondary-background, 80%);
+@overlay-primary-color-mode:                    light;
+
+// Component: Article
+// ========================================================================
+
+// Component:       `uk-article`
+//
+// Sub-objects:     `uk-article-title`
+//                  `uk-article-meta`
+
+@article-margin-top:                            @global-large-margin;
+
+@article-title-font-size:                       @global-xxlarge-font-size;
+@article-title-line-height:                     1.2;
+
+@article-meta-font-size:                        @global-small-font-size;
+@article-meta-line-height:                      1.4;
+@article-meta-color:                            @global-medium-neutral-color;
+
+@article-meta-link-color:                       @article-meta-color;
+@article-meta-link-hover-color:                 @global-color;
+
+// Component: Comment
+// ========================================================================
+
+// Component:       `uk-comment`
+//
+// Sub-objects:     `uk-comment-body`
+//                  `uk-comment-header`
+//                  `uk-comment-title`
+//                  `uk-comment-meta`
+//                  `uk-comment-avatar`
+//                  `uk-comment-list`
+//
+// Modifier:        `uk-comment-primary`
+
+@comment-header-margin-bottom:                  @global-margin;
+
+@comment-title-font-size:                       @global-medium-font-size;
+@comment-title-line-height:                     1.4;
+
+@comment-meta-font-size:                        @global-small-font-size;
+@comment-meta-line-height:                      1.4;
+@comment-meta-color:                            @global-muted-color;
+
+@comment-list-margin-top:                       @global-large-margin;
+@comment-list-padding-left:                     30px;
+@comment-list-padding-left-m:                   100px;
+
+@comment-primary-padding:                       @global-gutter;
+@comment-primary-background:                    @global-muted-background;
+
+// Component: Search
+// ========================================================================
+
+// Component:       `uk-search`
+//
+// Sub-objects:     `uk-search-input`
+//                  `uk-search-toggle`
+//
+// Adopted:         `uk-search-icon`
+//
+// Modifier:        `uk-search-default`
+//                  `uk-search-navbar`
+//                  `uk-search-large`
+
+@search-color:                                      @global-color;
+@search-placeholder-color:                          @global-muted-color;
+
+@search-icon-color:                                 @global-muted-color;
+
+@search-default-width:                              180px;
+@search-default-height:                             @global-control-height;
+@search-default-padding-horizontal:                 6px;
+@search-default-background:                         transparent;
+@search-default-focus-background:                   @search-default-background;
+@search-default-border-width:                       @global-border-width;
+@search-default-border:                             @global-border;
+@search-default-icon-width:                         @global-control-height;
+
+@search-navbar-width:                               auto;
+@search-navbar-height:                              40px;
+@search-navbar-background:                          transparent;
+@search-navbar-font-size:                           @global-large-font-size;
+
+@search-navbar-icon-width:                          40px;
+
+@search-large-width:                                500px;
+@search-large-height:                               80px;
+@search-large-background:                           transparent;
+@search-large-font-size:                            @global-xxlarge-font-size;
+
+@search-large-icon-width:                           80px;
+
+@search-toggle-color:                               @global-muted-color;
+@search-toggle-hover-color:                         @global-color;
+
+// Component: Nav
+// ========================================================================
+
+// Component:       `uk-nav`
+//
+// Sub-objects:     `uk-nav-header`
+//                  `uk-nav-divider`
+//                  `uk-nav-sub`
+//
+// Modifiers:       `uk-nav-parent-icon`
+//                  `uk-nav-default`
+//                  `uk-nav-primary`
+//                  `uk-nav-center`
+//
+// States:          `uk-active`
+//                  `uk-parent`
+//                  `uk-open`
+//                  `uk-touch`
+
+@nav-item-padding-vertical:                     8px;
+@nav-item-padding-horizontal:                   @global-margin;
+
+@nav-sublist-padding-vertical:                  5px;
+@nav-sublist-padding-left:                      15px;
+@nav-sublist-deeper-padding-left:               15px;
+@nav-sublist-item-padding-vertical:             2px;
+
+@nav-parent-icon-width:                         (@global-line-height * 1em);
+@nav-parent-icon-height:                        @nav-parent-icon-width;
+@nav-parent-icon-color:                         @global-color;
+
+@nav-header-padding-vertical:                   @nav-item-padding-vertical;
+@nav-header-padding-horizontal:                 @nav-item-padding-horizontal;
+@nav-header-font-size:                          @global-small-font-size;
+@nav-header-text-transform:                     uppercase;
+@nav-header-margin-top:                         @global-margin;
+
+@nav-divider-margin-vertical:                   5px;
+@nav-divider-margin-horizontal:                 0;
+
+@nav-default-font-size:                         @global-small-font-size;
+@nav-default-item-color:                        @global-muted-color;
+@nav-default-item-hover-color:                  @global-color;
+@nav-default-item-active-color:                 @global-emphasis-color;
+@nav-default-header-color:                      @global-emphasis-color;
+@nav-default-divider-border-width:              @global-border-width;
+@nav-default-divider-border:                    @global-border;
+@nav-default-sublist-item-color:                @global-muted-color;
+@nav-default-sublist-item-hover-color:          @global-color;
+
+@nav-primary-item-font-size:                    @global-large-font-size;
+@nav-primary-item-line-height:                  @global-line-height;
+@nav-primary-item-color:                        @global-muted-color;
+@nav-primary-item-hover-color:                  @global-color;
+@nav-primary-item-active-color:                 @global-emphasis-color;
+@nav-primary-header-color:                      @global-emphasis-color;
+@nav-primary-divider-border-width:              @global-border-width;
+@nav-primary-divider-border:                    @global-border;
+@nav-primary-sublist-item-color:                @global-muted-color;
+@nav-primary-sublist-item-hover-color:          @global-color;
+
+@internal-nav-parent-close-image:               "/img/assets/blank.svg";
+@internal-nav-parent-open-image:                "/img/assets/blank.svg";
+
+// Component: Navbar
+// ========================================================================
+
+// Component:       `uk-navbar`
+//
+// Sub-objects:     `uk-navbar-container`
+//                  `uk-navbar-left`
+//                  `uk-navbar-right`
+//                  `uk-navbar-center`
+//                  `uk-navbar-center-left`
+//                  `uk-navbar-center-right`
+//                  `uk-navbar-nav`
+//                  `uk-navbar-item`
+//                  `uk-navbar-toggle`
+//                  `uk-navbar-subtitle`
+//                  `uk-navbar-dropbar`
+//
+// Adopted:         `uk-navbar-dropdown` + Modifiers
+//                  `uk-navbar-dropdown-nav`
+//                  `uk-navbar-dropdown-grid`
+//                  `uk-navbar-toggle-icon`
+//
+// Modifiers:       `uk-navbar-transparent`
+//                  `uk-navbar-sticky`
+//                  `uk-navbar-dropdown-stack`
+//
+// States:          `uk-active`
+//                  `uk-parent`
+//                  `uk-open`
+
+@navbar-background:                             @global-muted-background;
+@navbar-color-mode:                             none;
+
+@navbar-nav-item-height:                        inherit;
+@navbar-nav-item-padding-horizontal:            15px;
+@navbar-nav-item-color:                         @global-muted-color;
+@navbar-nav-item-font-size:                     @global-font-size;
+@navbar-nav-item-font-family:                   @global-font-family;
+@navbar-nav-item-text-transform:                inherit;
+@navbar-nav-item-hover-color:                   @global-color;
+@navbar-nav-item-onclick-color:                 @global-emphasis-color;
+@navbar-nav-item-active-color:                  @global-emphasis-color;
+
+@navbar-item-color:                             @global-color;
+
+@navbar-toggle-color:                           @global-muted-color;
+@navbar-toggle-hover-color:                     @global-color;
+
+@navbar-subtitle-font-size:                     @global-small-font-size;
+
+@navbar-dropdown-z-index:                       @global-z-index + 20;
+@navbar-dropdown-width:                         200px;
+@navbar-dropdown-margin:                        5px;
+@navbar-dropdown-padding:                       20px;
+@navbar-dropdown-background:                    @global-background;
+@navbar-dropdown-color:                         @global-color;
+@navbar-dropdown-grid-gutter-horizontal:        (@navbar-dropdown-padding * 2);
+@navbar-dropdown-grid-gutter-vertical:          @navbar-dropdown-grid-gutter-horizontal;
+@navbar-dropdown-box-shadow:                    0 4px 8px -2px rgba(9,30,66,.25), 0 0 1px rgba(9,30,66,.31);
+
+@navbar-dropdown-dropbar-margin-top:            0;
+@navbar-dropdown-dropbar-margin-bottom:         @navbar-dropdown-dropbar-margin-top;
+
+@navbar-dropdown-grid-divider-border-width:     @global-border-width;
+@navbar-dropdown-grid-divider-border:           @navbar-dropdown-nav-divider-border;
+
+@navbar-dropdown-nav-font-size:                 @global-small-font-size;
+@navbar-dropdown-nav-item-color:                @global-muted-color;
+@navbar-dropdown-nav-item-hover-color:          @global-color;
+@navbar-dropdown-nav-item-active-color:         @global-emphasis-color;
+@navbar-dropdown-nav-header-color:              @global-emphasis-color;
+@navbar-dropdown-nav-divider-border-width:      @global-border-width;
+@navbar-dropdown-nav-divider-border:            @global-border;
+@navbar-dropdown-nav-sublist-item-color:        @global-muted-color;
+@navbar-dropdown-nav-sublist-item-hover-color:  @global-color;
+
+@navbar-dropbar-background:                     @navbar-dropdown-background;
+@navbar-dropbar-box-shadow:                     0 5px 7px rgba(0, 0, 0, 0.05);
+@navbar-dropbar-z-index:                        @global-z-index - 20;
+
+// Component: Subnav
+// ========================================================================
+
+// Component:       `uk-subnav`
+//
+// Modifiers:       `uk-subnav-divider`
+//                  `uk-subnav-pill`
+//
+// States:          `uk-active`
+//                  `uk-first-column`
+
+@subnav-margin-horizontal:                      10px;
+
+@subnav-item-font-size:                         @global-font-size;
+@subnav-item-text-transform:                    inherit;
+@subnav-item-color:                             @global-link-color;
+@subnav-item-hover-color:                       @global-color;
+@subnav-item-hover-text-decoration:             none;
+@subnav-item-active-color:                      @global-emphasis-color;
+
+@subnav-divider-margin-horizontal:              @subnav-margin-horizontal;
+@subnav-divider-border-height:                  1.5em;
+@subnav-divider-border-width:                   @global-border-width;
+@subnav-divider-border:                         @global-border;
+
+@subnav-pill-item-padding-vertical:             6px;
+@subnav-pill-item-padding-horizontal:           12px;
+@subnav-pill-item-background:                   transparent;
+@subnav-pill-item-color:                        @subnav-item-color;
+@subnav-pill-item-hover-background:             @global-muted-background;
+@subnav-pill-item-hover-color:                  @global-link-color;
+@subnav-pill-item-onclick-background:           @subnav-pill-item-hover-background;
+@subnav-pill-item-onclick-color:                @subnav-pill-item-hover-color;
+@subnav-pill-item-active-background:            @global-muted-background;
+@subnav-pill-item-active-color:                 @global-emphasis-color;
+
+@subnav-item-disabled-color:                    @global-muted-color;
+
+// Component: Breadcrumb
+// ========================================================================
+
+// Component:       `uk-breadcrumb`
+//
+// States:          `uk-disabled`
+
+@breadcrumb-item-font-size:                         @global-small-font-size;
+@breadcrumb-item-color:                             @global-muted-color;
+@breadcrumb-item-hover-color:                       @global-color;
+@breadcrumb-item-hover-text-decoration:             none;
+@breadcrumb-item-active-color:                      @global-color;
+
+@breadcrumb-divider:                                "/";
+@breadcrumb-divider-margin-horizontal:              20px;
+@breadcrumb-divider-color:                          @global-muted-color;
+
+// Component: Pagination
+// ========================================================================
+
+// Component:       `uk-pagination`
+//
+// Adopted:         `uk-pagination-next`
+//                  `uk-pagination-previous`
+//
+// States:          `uk-active`
+//                  `uk-disabled`
+
+@pagination-margin-horizontal:                  0px;
+
+@pagination-item-color:                         @global-emphasis-color;
+@pagination-item-hover-color:                   @global-color;
+@pagination-item-hover-text-decoration:         none;
+@pagination-item-active-color:                  @global-color;
+@pagination-item-disabled-color:                @global-muted-color;
+
+// Component: Tab
+// ========================================================================
+
+// Component:       `uk-tab`
+//
+// Modifiers:       `uk-tab-bottom`
+//                  `uk-tab-left`
+//                  `uk-tab-right`
+//
+// States:          `uk-active`
+//                  `uk-disabled`
+
+@tab-border-width:                       2px;
+@tab-border:                             @global-border;
+@tab-margin-horizontal:                  20px;
+
+@tab-item-font-size:                     @global-small-font-size;
+@tab-item-text-transform:                uppercase;
+@tab-item-padding-horizontal:            10px;
+@tab-item-padding-vertical:              5px;
+@tab-item-color:                         @global-muted-color;
+@tab-item-border-width:                  2px;
+@tab-item-hover-color:                   @global-color;
+@tab-item-hover-text-decoration:         none;
+@tab-item-active-color:                  @global-emphasis-color;
+@tab-item-active-border:                 @global-primary-background;
+@tab-item-disabled-color:                @global-disabled-color;
+
+// Component: Slidenav
+// ========================================================================
+
+// Component:       `uk-slidenav`
+//
+// Sub-objects:     `uk-slidenav-container`
+//
+// Modifiers:       `uk-slidenav-previous`
+//                  `uk-slidenav-next`
+//                  `uk-slidenav-large`
+
+@slidenav-padding-vertical:                     5px;
+@slidenav-padding-horizontal:                   10px;
+
+@slidenav-color:                                fade(@global-color, 50%);
+@slidenav-hover-color:                          fade(@global-color, 90%);
+@slidenav-active-color:                         fade(@global-color, 50%);
+
+@slidenav-large-padding-vertical:               10px;
+@slidenav-large-padding-horizontal:             @slidenav-large-padding-vertical;
+
+// Component: Dotnav
+// ========================================================================
+
+// Component:       `uk-dotnav`
+//
+// Modifier:        `uk-dotnav-vertical`
+//
+// States:          `uk-active`
+
+@dotnav-margin-horizontal:                      12px;
+@dotnav-margin-vertical:                        @dotnav-margin-horizontal;
+
+@dotnav-item-width:                             10px;
+@dotnav-item-height:                            @dotnav-item-width;
+@dotnav-item-border:                            fade(@global-color, 40%);
+@dotnav-item-border-width:                      1px;
+@dotnav-item-border-radius:                     50%;
+@dotnav-item-background:                        transparent;
+@dotnav-item-hover-border:                      transparent;
+@dotnav-item-hover-background:                  fade(@global-color, 60%);
+@dotnav-item-onclick-border:                    transparent;
+@dotnav-item-onclick-background:                fade(@global-color, 20%);
+@dotnav-item-active-border:                     transparent;
+@dotnav-item-active-background:                 fade(@global-color, 60%);
+
+// Component: Thumbnav
+// ========================================================================
+
+// Component:       `uk-thumbnav`
+//
+// Modifier:        `uk-thumbnav-vertical`
+//
+// States:          `uk-active`
+
+@thumbnav-margin-horizontal:                    15px;
+@thumbnav-margin-vertical:                      @thumbnav-margin-horizontal;
+
+@thumbnav-item-background:                      fade(@global-background, 40%);
+@thumbnav-item-hover-background:                transparent;
+@thumbnav-item-active-background:               transparent;
+
+// Component: Accordion
+// ========================================================================
+
+// Component:       `uk-accordion`
+//
+// Sub-objects:     `uk-accordion-title`
+//                  `uk-accordion-content`
+//
+// States:          `uk-open`
+
+@accordion-icon-color:                         @global-color;
+
+@accordion-item-margin-top:                    @global-margin;
+
+@accordion-title-font-size:                    @global-medium-font-size;
+@accordion-title-line-height:                  1.4;
+@accordion-title-color:                        @global-emphasis-color;
+@accordion-title-hover-color:                  @global-color;
+
+@accordion-content-margin-top:                 @global-margin;
+
+@internal-accordion-open-image:                "../../images/backgrounds/accordion-open.svg";
+@internal-accordion-close-image:               "../../images/backgrounds/accordion-close.svg";
+
+// Component: Drop
+// ========================================================================
+
+// Component:       `uk-drop`
+//
+// Modifiers:       `uk-drop-top-*`
+//                  `uk-drop-bottom-*`
+//                  `uk-drop-left-*`
+//                  `uk-drop-right-*`
+//                  `uk-drop-stack`
+//                  `uk-drop-grid`
+//
+// States:          `uk-open`
+//
+// Uses:            Animation
+
+@drop-z-index:                              @global-z-index + 20;
+@drop-width:                                300px;
+@drop-margin:                               @global-margin;
+
+// Component: Dropdown
+// ========================================================================
+
+// Component:       `uk-dropdown`
+//
+// Adopted:         `uk-dropdown-nav`
+//
+// Modifiers:       `uk-dropdown-top-*`
+//                  `uk-dropdown-bottom-*`
+//                  `uk-dropdown-left-*`
+//                  `uk-dropdown-right-*`
+//                  `uk-dropdown-stack`
+//                  `uk-dropdown-grid`
+
+@dropdown-z-index:                              @global-z-index + 20;
+@dropdown-min-width:                            220px;
+@dropdown-padding:                              20px;
+@dropdown-background:                           @global-background;
+@dropdown-color:                                @global-color;
+@dropdown-margin:                               @global-mini-margin;
+
+@dropdown-nav-font-size:                        @global-small-font-size;
+@dropdown-box-shadow:                           @global-border-box-shadow;
+
+@dropdown-nav-item-color:                       @global-emphasis-color;
+@dropdown-nav-item-hover-color:                 @global-color;
+@dropdown-nav-header-color:                     @global-emphasis-color;
+@dropdown-nav-divider-border-width:             @global-border-width;
+@dropdown-nav-divider-border:                   @global-border;
+@dropdown-nav-sublist-item-color:               @global-emphasis-color;
+@dropdown-nav-sublist-item-hover-color:         @global-color;
+
+// Component: Modal
+// ========================================================================
+
+// Component:       `uk-modal`
+//
+// Sub-objects:     `uk-modal-page`
+//                  `uk-modal-dialog`
+//                  `uk-modal-header`
+//                  `uk-modal-body`
+//                  `uk-modal-footer`
+//                  `uk-modal-title`
+//                  `uk-modal-close`
+//
+// Adopted:         `uk-modal-close-default`
+//                  `uk-modal-close-outside`
+//                  `uk-modal-close-full`
+//
+// Modifiers:       `uk-modal-container`
+//                  `uk-modal-full`
+//
+// States:          `uk-open`
+
+@modal-z-index:                                 @global-z-index + 10;
+@modal-background:                              rgba(0,0,0,0.6);
+
+@modal-padding-horizontal:                      15px;
+@modal-padding-horizontal-s:                    @global-gutter;
+@modal-padding-horizontal-m:                    @global-medium-gutter;
+@modal-padding-vertical:                        @modal-padding-horizontal;
+@modal-padding-vertical-s:                      50px;
+
+@modal-dialog-width:                            600px;
+@modal-dialog-medium-width:                     720px;
+@modal-dialog-large-width:                      1080px;
+@modal-dialog-background:                       @global-background;
+
+@modal-container-width:                         1200px;
+
+@modal-body-padding-horizontal:                 @global-gutter;
+@modal-body-padding-vertical:                   @global-gutter;
+
+@modal-header-border-width:                     @global-border-width;
+@modal-header-border:                           @global-border;
+@modal-header-padding-horizontal:               @global-gutter;
+@modal-header-padding-vertical:                 (@modal-header-padding-horizontal / 2);
+@modal-header-background:                       @global-muted-background;
+
+@modal-footer-border-width:                     @global-border-width;
+@modal-footer-border:                           @global-border;
+@modal-footer-padding-horizontal:               @global-gutter;
+@modal-footer-padding-vertical:                 @global-gutter;
+@modal-footer-background:                       @global-muted-background;
+
+@modal-title-font-size:                         @global-xlarge-font-size;
+@modal-title-line-height:                       1.3;
+
+@modal-close-position:                          @global-small-margin;
+@modal-close-padding:                           5px;
+
+@modal-close-outside-position:                  0;
+@modal-close-outside-translate:                 100%;
+@modal-close-outside-color:                     lighten(@global-inverse-color, 20%);
+@modal-close-outside-hover-color:               @global-inverse-color;
+
+@modal-close-full-padding:                      @global-margin;
+@modal-close-full-background:                   @modal-dialog-background;
+
+// Component: Lightbox
+// ========================================================================
+
+// Component:       `uk-lightbox`
+//
+// Sub-objects:     `uk-lightbox-page`
+//                  `uk-lightbox-items`
+//                  `uk-lightbox-toolbar`
+//                  `uk-lightbox-toolbar-icon`
+//                  `uk-lightbox-button`
+//                  `uk-lightbox-caption`
+//                  `uk-lightbox-iframe`
+//
+// States:          `uk-open`
+
+@lightbox-z-index:                              @global-z-index + 10;
+@lightbox-background:                           #000;
+
+@lightbox-item-color:                           rgba(255,255,255,0.7);
+
+@lightbox-toolbar-padding-vertical:             10px;
+@lightbox-toolbar-padding-horizontal:           10px;
+@lightbox-toolbar-background:                   rgba(0,0,0,0.3);
+@lightbox-toolbar-color:                        rgba(255,255,255,0.7);
+
+@lightbox-toolbar-icon-padding:                 5px;
+@lightbox-toolbar-icon-color:                   rgba(255,255,255,0.7);
+
+@lightbox-toolbar-icon-hover-color:             #fff;
+
+@lightbox-button-size:                          50px;
+@lightbox-button-background:                    @lightbox-toolbar-background;
+@lightbox-button-color:                         rgba(255,255,255,0.7);
+
+@lightbox-button-hover-color:                   #fff;
+
+// Component: Stiky
+// ========================================================================
+
+// Component:       `uk-sticky`
+//
+// Modifier:        `uk-sticky-fixed`
+//
+// States:          `uk-active`
+
+@sticky-z-index:                                @global-z-index - 20;
+
+@sticky-animation-duration:                     0.2s;
+@sticky-reverse-animation-duration:             0.2s;
+
+// Component: Offcanvas
+// ========================================================================
+
+// Component:       `uk-offcanvas`
+//
+// Sub-objects:     `uk-offcanvas-bar`
+//                  `uk-offcanvas-container`
+//                  `uk-offcanvas-content`
+//                  `uk-offcanvas-page`
+//
+// Adopted:         `uk-offcanvas-close`
+//
+// Modifiers:       `uk-offcanvas-flip`
+//                  `uk-offcanvas-bar-animation`
+//                  `uk-offcanvas-reveal`
+//                  `uk-offcanvas-overlay`
+//                  `uk-offcanvas-content-animation`
+//
+// States:          `uk-open`
+
+@offcanvas-z-index:                             @global-z-index;
+
+@offcanvas-bar-width:                           270px;
+@offcanvas-bar-padding-vertical:                @global-margin;
+@offcanvas-bar-padding-horizontal:              @global-margin;
+@offcanvas-bar-background:                      @global-secondary-background;
+@offcanvas-bar-color-mode:                      light;
+
+@offcanvas-bar-width-m:                         350px;
+@offcanvas-bar-padding-vertical-m:              @global-medium-gutter;
+@offcanvas-bar-padding-horizontal-m:            @global-medium-gutter;
+
+@offcanvas-close-position:                      20px;
+@offcanvas-close-padding:                       5px;
+
+@offcanvas-overlay-background:                  rgba(0,0,0,0.1);
+
+// Component: Iconnav
+// ========================================================================
+
+// Component:       `uk-iconnav`
+//
+// Modifier:        `uk-iconnav-vertical`
+//
+// States:          `uk-active`
+
+@iconnav-margin-horizontal:                      @global-small-margin;
+@iconnav-margin-vertical:                        @iconnav-margin-horizontal;
+
+@iconnav-item-color:                             @global-muted-color;
+
+@iconnav-item-hover-color:                       @global-color;
+
+@iconnav-item-active-color:                      @global-color;
+
+// Component: Notification
+// ========================================================================
+
+// Component:       `uk-notification`
+//
+// Sub-objects:     `uk-notification-message`
+//
+// Adopted:         `uk-notification-close`
+//
+// Modifiers:       `uk-notification-top-center`
+//                  `uk-notification-top-right`
+//                  `uk-notification-bottom-left`
+//                  `uk-notification-bottom-center`
+//                  `uk-notification-bottom-right`
+//                  `uk-notification-message-primary`
+//                  `uk-notification-message-success`
+//                  `uk-notification-message-warning`
+//                  `uk-notification-message-danger`
+
+@notification-position:                               10px;
+@notification-z-index:                                @global-z-index + 40;
+@notification-width:                                  360px;
+
+@notification-message-margin-bottom:                  10px;
+@notification-message-padding:                        @global-gutter - 4px;
+@notification-message-background:                     @global-background;
+@notification-message-color:                          @global-color;
+@notification-message-font-size:                      @global-font-size;
+@notification-message-line-height:                    1.4;
+@notification-message-box-shadow:                     0 15px 32px -8px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31);
+
+@notification-close-top:                              @notification-message-padding;
+@notification-close-right:                            @notification-message-padding;
+
+@notification-message-primary-color:                  @global-primary-background;
+@notification-message-success-color:                  @global-success-background;
+@notification-message-warning-color:                  @global-warning-background;
+@notification-message-danger-color:                   @global-danger-background;
+
+// Component: Tooltip
+// ========================================================================
+
+// Component:       `uk-tooltip`
+//
+// Modifiers        `uk-tooltip-top`
+//                  `uk-tooltip-top-left`
+//                  `uk-tooltip-top-right`
+//                  `uk-tooltip-bottom`
+//                  `uk-tooltip-bottom-left`
+//                  `uk-tooltip-bottom-right`
+//                  `uk-tooltip-left`
+//                  `uk-tooltip-right`
+//
+// States:          `uk-active`
+
+@tooltip-z-index:                               @global-z-index + 30;
+@tooltip-max-width:                             200px;
+@tooltip-padding-vertical:                      5px;
+@tooltip-padding-horizontal:                    10px;
+@tooltip-background:                            rgba(7, 21, 45, 0.8); //@global-emphasis-background; // rgba(0,0,0,0.7)
+@tooltip-border-radius:                         @global-border-radius;
+@tooltip-color:                                 @global-inverse-color;
+@tooltip-font-size:                             12px;
+@tooltip-margin:                                10px;
+@tooltip-corner-size:                           5px;
+@tooltip-corner-offset:                         10px;
+
+// Component: Placeholder
+// ========================================================================
+
+// Component:       `uk-placeholder`
+
+@placeholder-margin-vertical:                   @global-margin;
+@placeholder-padding-vertical:                  @global-gutter;
+@placeholder-padding-horizontal:                @global-gutter;
+@placeholder-background:                        transparent;
+@placeholder-border-width:                      @global-border-width;
+@placeholder-border:                            @global-border;
+
+// Component: Progress
+// ========================================================================
+
+// Component:       `uk-progress`
+
+@progress-height:                               15px;
+@progress-margin-vertical:                      @global-margin;
+@progress-background:                           @global-muted-background;
+@progress-border-radius:                        500px;
+
+@progress-bar-background:                       @global-primary-background;
+
+// Component: Sortable
+// ========================================================================
+
+// Component:       `uk-sortable`
+//
+// Sub-objects:     `uk-sortable-drag`
+//                  `uk-sortable-placeholder`
+//                  `uk-sortable-handle`
+//
+// Modifiers:       `uk-sortable-empty`
+//
+// States:          `uk-drag`
+
+@sortable-dragged-z-index:                      @global-z-index + 50;
+
+@sortable-placeholder-opacity:                  0;
+
+@sortable-empty-height:                         50px;
+
+// Component: Countdown
+// ========================================================================
+
+// Component:       `uk-countdown`
+//
+// Sub-objects:     `uk-countdown-number`
+//                  `uk-countdown-separator`
+//                  `uk-countdown-label`
+
+@countdown-item-line-height:                    70px;
+
+@countdown-number-font-size:                    2rem; // 32px
+@countdown-number-font-size-s:                  4rem; // 64px
+@countdown-number-font-size-m:                  6rem; // 96px
+
+@countdown-separator-font-size:                 1rem; // 16px
+@countdown-separator-font-size-s:               2rem; // 32px
+@countdown-separator-font-size-m:               3rem; // 48px
+
+// Component: Animation
+// ========================================================================
+
+// Component:       `uk-animation-*`
+//
+// Modifiers:       `uk-animation-reverse`
+//                  `uk-animation-fast`
+//                  `uk-animation-fade`
+//                  `uk-animation-scale-up`
+//                  `uk-animation-scale-down`
+//                  `uk-animation-slide-top-*`
+//                  `uk-animation-slide-bottom-*`
+//                  `uk-animation-slide-left-*`
+//                  `uk-animation-slide-right-*`
+//                  `uk-animation-kenburns`
+//                  `uk-animation-shake`
+//
+// Sub-objects:     `uk-animation-toggle`
+//
+// States:          `uk-hover`
+
+@animation-duration:                            0.5s;
+@animation-fade-duration:                       0.8s;
+@animation-kenburns-duration:                   15s;
+@animation-fast-duration:                       0.1s;
+
+@animation-slide-small-translate:               10px;
+@animation-slide-medium-translate:              50px;
+
+// Component: Width
+// ========================================================================
+
+// Component:       `uk-child-width-*`
+//                  `uk-width-*`
+
+@width-mini-width:                              100px;
+@width-small-width:                             150px;
+@width-middle-width:                            250px;
+@width-medium-width:                            300px;
+@width-large-width:                             450px;
+@width-xlarge-width:                            600px;
+@width-xxlarge-width:                           750px;
+
+// Component: Text
+// ========================================================================
+
+@text-lead-font-size:                           @global-large-font-size;
+@text-lead-line-height:                         1.5;
+@text-lead-color:                               @global-emphasis-color;
+
+@text-meta-font-size:                           @global-small-font-size;
+@text-meta-line-height:                         1.4;
+@text-meta-color:                               @global-muted-color;
+@text-meta-link-color:                          @text-meta-color;
+@text-meta-link-hover-color:                    @global-color;
+
+@text-small-font-size:                          @global-small-font-size;
+@text-small-line-height:                        1.5;
+
+@text-large-font-size:                          @global-large-font-size;
+@text-large-line-height:                        1.5;
+
+@text-bold-font-weight:                         bolder;
+
+@text-muted-color:                              @global-muted-color;
+@text-primary-color:                            @global-primary-background;
+@text-success-color:                            @global-success-background;
+@text-warning-color:                            @global-warning-background;
+@text-danger-color:                             @global-danger-background;
+
+@text-background-color:                         @global-primary-background;
+
+// Component: Column
+// ========================================================================
+
+// Component:       `uk-column-*`
+//
+// Sub-objects:     `uk-column-span`
+//
+// Modifiers:       `uk-column-divider`
+
+@column-gutter:                                 @global-gutter;
+@column-gutter-l:                               @global-medium-gutter;
+
+@column-divider-rule-color:                     @global-border;
+@column-divider-rule-width:                     1px;
+
+// Component: Background
+// ========================================================================
+
+// Component:       `uk-background-*`
+
+@background-default-background:                 @global-background;
+@background-muted-background:                   @global-muted-background;
+@background-primary-background:                 @global-primary-background;
+@background-secondary-background:               @global-secondary-background;
+
+// Component: Align
+// ========================================================================
+
+// Component:       `uk-align-left-*`
+//                  `uk-align-right-*`
+//                  `uk-align-center`
+
+@align-margin-horizontal:                       @global-gutter;
+@align-margin-vertical:                         @global-gutter;
+
+@align-margin-horizontal-l:                     @global-medium-gutter;
+
+// Component: Utility
+// ========================================================================
+
+// Component:       `uk-panel-*`
+//                  `uk-clearfix`
+//                  `uk-float-*`
+//                  `uk-overflow-*`
+//                  `uk-resize-*`
+//                  `uk-display-*`
+//                  `uk-inline-*`
+//                  `uk-height-*`
+//                  `uk-responsive-*`
+//                  `uk-preserve-width`
+//                  `uk-border-*`
+//                  `uk-box-shadow-*`
+//                  `uk-box-shadow-bottom`
+//                  `uk-dropcap`
+//                  `uk-leader`
+//                  `uk-logo`
+//                  `uk-svg`
+//                  `uk-blend-*`
+//                  `uk-transform-*`
+//                  `uk-transform-origin-*`
+//
+// States:          `uk-disabled`
+//                  `uk-drag`
+//                  `uk-dragover`
+//                  `uk-preserve`
+
+@panel-scrollable-height:                       170px;
+@panel-scrollable-padding:                      10px;
+@panel-scrollable-border-width:                 @global-border-width;
+@panel-scrollable-border:                       @global-border;
+
+@height-small-height:                           150px;
+@height-medium-height:                          300px;
+@height-large-height:                           450px;
+
+@border-rounded-border-radius:                  5px;
+
+@box-shadow-duration:                           0.1s;
+
+@box-shadow-bottom-height:                      30px;
+@box-shadow-bottom-border-radius:               100%;
+@box-shadow-bottom-background:                  #444;
+@box-shadow-bottom-blur:                        20px;
+
+@dropcap-margin-right:                          10px;
+@dropcap-font-size:                             ((@global-line-height * 3) * 1em);
+
+@leader-fill-content:                           '.';
+@leader-fill-margin-left:                       @global-small-gutter;
+
+@logo-font-size:                                @global-large-font-size;
+@logo-font-family:                              @global-font-family;
+@logo-color:                                    @global-color;
+@logo-hover-color:                              @global-color;
+
+@dragover-box-shadow:                           0 0 20px rgba(100,100,100,0.3);
+
+// Component: Margin
+// ========================================================================
+
+// Component:       `uk-margin-*`
+//                  `uk-margin-small-*`
+//                  `uk-margin-medium-*`
+//                  `uk-margin-large-*`
+//                  `uk-margin-xlarge-*`
+//                  `uk-margin-remove-*`
+//                  `uk-margin-auto-*`
+
+@margin-margin:                                        @global-margin;
+
+@margin-mini-margin:                                   @global-mini-margin;
+
+@margin-small-margin:                                  @global-small-margin;
+
+@margin-medium-margin:                                 @global-medium-margin;
+
+@margin-large-margin:                                  @global-medium-margin;
+@margin-large-margin-l:                                @global-large-margin;
+
+@margin-xlarge-margin:                                 @global-large-margin;
+@margin-xlarge-margin-l:                               @global-xlarge-margin;
+
+// Component: Padding
+// ========================================================================
+
+// Component:       `uk-padding`
+//                  `uk-padding-large`
+//                  `uk-padding-remove-*`
+
+@padding-default:                                       @global-gutter;
+
+@padding-padding:                                       @global-gutter;
+@padding-padding-l:                                     @global-medium-gutter;
+
+@padding-mini:                                          @global-mini-gutter;
+
+@padding-small:                                         @global-small-gutter;
+@padding-small-padding:                                 @global-small-gutter;
+
+@padding-medium:                                        @global-medium-gutter;
+
+@padding-large:                                         @global-large-gutter;
+@padding-large-padding:                                 @global-gutter;
+@padding-large-padding-l:                               @global-large-gutter;
+
+@padding-xlarge:                                        @global-xlarge-gutter;
+
+// Component: Position
+// ========================================================================
+
+// Component:       `uk-position-absolute`
+//                  `uk-position-relative`
+//                  `uk-position-z-index`
+//                  `uk-position-top`
+//                  `uk-position-bottom`
+//                  `uk-position-left`
+//                  `uk-position-right`
+//                  `uk-position-top-left`
+//                  `uk-position-top-center`
+//                  `uk-position-top-right`
+//                  `uk-position-bottom-left`
+//                  `uk-position-bottom-center`
+//                  `uk-position-bottom-right`
+//                  `uk-position-center`
+//                  `uk-position-center-left`
+//                  `uk-position-center-right`
+//                  `uk-position-cover`
+//
+// Modifiers:       `uk-position-small`
+//                  `uk-position-medium`
+//                  `uk-position-large`
+
+@position-small-margin:                                @global-small-gutter;
+@position-medium-margin:                               @global-gutter;
+@position-large-margin:                                @global-gutter;
+@position-large-margin-l:                              50px;
+
+// Component: Transition
+// ========================================================================
+
+// Component:       `uk-transition-*`
+//
+// Modifiers:       `uk-transition-fade`
+//                  `uk-transition-scale-up`
+//                  `uk-transition-scale-down`
+//                  `uk-transition-slide-top-*`
+//                  `uk-transition-slide-bottom-*`
+//                  `uk-transition-slide-left-*`
+//                  `uk-transition-slide-right-*`
+//                  `uk-transition-opaque`
+//                  `uk-transition-slow`
+//
+// Sub-objects:     `uk-transition-toggle`,
+//                  `uk-transition-active`
+//
+// States:          `uk-hover`
+//                  `uk-active`
+
+@transition-duration:                           0.3s;
+
+@transition-scale:                              1.1;
+
+@transition-slide-small-translate:              10px;
+@transition-slide-medium-translate:             50px;
+
+@transition-slow-duration:                      0.7s;
+
+// Component: Inverse
+// ========================================================================
+
+// Component:       `uk-light`
+//                  `uk-dark`
+
+@inverse-global-color-mode:                     light;
+
+@inverse-global-color:                          fade(@global-inverse-color, 70%);
+@inverse-global-emphasis-color:                 @global-inverse-color;
+@inverse-global-muted-color:                    fade(@global-inverse-color, 50%);
+@inverse-global-inverse-color:                  @global-color;
+
+@inverse-global-primary-background:             @global-inverse-color;
+@inverse-global-muted-background:               fade(@global-inverse-color, 10%);
+
+@inverse-global-border:                         fade(@global-inverse-color, 20%);

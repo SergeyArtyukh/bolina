@@ -1,0 +1,108 @@
+//
+// Component: Modal
+//
+// ========================================================================
+
+.hook-modal() {}
+
+// Dialog
+// ========================================================================
+
+.hook-modal-dialog() {
+    border-radius: @global-border-radius;
+}
+
+// Full
+// ========================================================================
+
+.hook-modal-full() {}
+
+// Size
+// ========================================================================
+
+.uk-modal-medium {
+    width: 100%;
+    max-width: @modal-dialog-medium-width !important;
+}
+
+.uk-modal-large {
+    width: 100%;
+    max-width: @modal-dialog-large-width !important;
+}
+
+// Sections
+// ========================================================================
+
+.hook-modal-header() { border-bottom: @modal-header-border-width solid @modal-header-border; }
+
+.hook-modal-body() {
+    & > .uk-modal-footer {
+        margin-left: -@modal-body-padding-horizontal;
+        margin-right: -@modal-body-padding-horizontal;
+        margin-bottom: -@modal-body-padding-horizontal !important;
+    }
+}
+
+.hook-modal-footer() {
+    // border-top: @modal-footer-border-width solid @modal-footer-border;
+    border-bottom-left-radius: @global-border-radius;
+    border-bottom-right-radius: @global-border-radius;
+}
+
+
+// Title
+// ========================================================================
+
+.hook-modal-title() {
+    font-weight: 200;
+}
+
+
+// Close
+// ========================================================================
+
+.hook-modal-close() {}
+
+.hook-modal-close-hover() {}
+
+.hook-modal-close-default() {
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    color: #777;
+    top: 12px;
+    right: 12px;
+    border-radius: 50%;
+    .transition(all 0.2s ease-in-out);
+    &:before {
+        font-family: 'icomoon';
+        content: "\ed6a";
+    }
+}
+
+.hook-modal-close-default-hover() {
+    background-color: @global-muted-background;
+    .transition(all 0.2s ease-in-out);
+}
+
+.hook-modal-close-outside() {}
+
+.hook-modal-close-outside-hover() {}
+
+.hook-modal-close-full() {
+    top: 0;
+    right: 0;
+    padding: @modal-close-full-padding;
+    background: @modal-close-full-background;
+}
+
+.hook-modal-close-full-hover() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-modal-misc() {}

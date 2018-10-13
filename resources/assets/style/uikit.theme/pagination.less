@@ -1,0 +1,53 @@
+//
+// Component: Pagination
+//
+// ========================================================================
+
+.hook-pagination() {}
+
+.uk-pagination > * + * {
+    padding-left: 6px;
+}
+
+// Items
+// ========================================================================
+
+.hook-pagination-item() {
+    text-align: center;
+    line-height: 26px;
+    border-radius: @global-border-radius;
+    background-color: @global-default-background;
+    min-width: 24px;
+    padding: 2px 4px;
+    outline: none;
+    .transition(color 0.1s ease-in-out);
+
+    &:active {
+        background-color: @global-default-background-focus;
+    }
+}
+
+.hook-pagination-item-hover() {
+    background-color: @global-default-background-hover;
+}
+
+.hook-pagination-item-active() {
+    background: @global-default-background-active;
+    color: @global-inverse-color;
+    border-color: transparent;
+}
+
+.hook-pagination-item-disabled() {}
+
+// Miscellaneous
+// ========================================================================
+
+.hook-pagination-misc() {}
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-pagination-item() {}
+.hook-inverse-pagination-item-hover() {}
+.hook-inverse-pagination-item-active() {}
+.hook-inverse-pagination-item-disabled() {}

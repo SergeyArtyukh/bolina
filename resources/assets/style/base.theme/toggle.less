@@ -1,0 +1,146 @@
+//
+// Component: Toggle
+//
+// ========================================================================
+
+// Component
+// ========================================================================
+
+.uk-toggle {
+    display: inline-block;
+    height: @toggle-default-height;
+    line-height: @toggle-default-height;
+    width: @toggle-default-width;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    .border-radius(50px);
+
+    &.uk-toggle-small {
+        font-size: .8rem;
+        height: @toggle-small-height;
+        line-height: @toggle-small-height;
+        width: @toggle-small-width;
+    }
+
+    &.uk-toggle-large {
+        font-size: @global-large-font-size;
+        height: @toggle-large-height;
+        line-height: @toggle-large-height;
+        width: @toggle-large-width;
+    }
+
+    .uk-toggle-container {
+        color: #fff;
+        display: block;
+        height: inherit;
+        background-color: @toggle-default-background;
+        .transition(all 0.2s ease-in-out);
+
+        &:hover {
+            background-color: lighten(@toggle-default-background, 5%);
+            .transition(all 0.2s ease-in-out);
+        }
+
+        &::after {
+            content: '';
+            width: @toggle-default-height - (@toggle-default-space * 2);
+            height: @toggle-default-height - (@toggle-default-space * 2);
+            background-color: #fff;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            margin-top: -(@toggle-default-height - (@toggle-default-space * 2))/2;
+            .transition(transform .3s);
+            .transform(translateX(@toggle-default-space));
+            .border-radius(50px);
+        }
+
+        .uk-toggle-small&::after {
+            width: @toggle-small-height - (@toggle-small-space * 2);
+            height: @toggle-small-height - (@toggle-small-space * 2);
+            margin-top: -(@toggle-small-height - (@toggle-small-space * 2))/2;
+        }
+
+        .uk-toggle-large&::after {
+            width: @toggle-large-height - (@toggle-large-space * 2);
+            height: @toggle-large-height - (@toggle-large-space * 2);
+            margin-top: -(@toggle-large-height - (@toggle-large-space * 2))/2;
+        }
+
+        &::before {
+            content: '✕';
+            line-height: inherit;
+            text-align: center;
+            position: absolute;
+            right: @toggle-default-space;
+            height: inherit;
+            width: @toggle-default-height;
+        }
+
+        .uk-toggle-small&::before {
+            right: @toggle-small-space;
+            width: @toggle-small-height;
+        }
+
+        .uk-toggle-large&::before {
+            right: @toggle-large-space;
+            width: @toggle-large-height;
+        }
+    }
+
+    & input[type="checkbox"]:checked {
+        & + .uk-toggle-container {
+            background-color: @global-success-background;
+
+            &::after {
+                .transition(transform .3s);
+                .transform(translateX(@toggle-default-width - @toggle-default-space - (@toggle-default-height - (@toggle-default-space * 2))));
+            }
+
+            &::before {
+                font-family: icomoon;
+                font-size: inherit;
+                content: '\ed6e';
+                right: auto;
+                left: @toggle-default-space;
+            }
+        }
+
+        .uk-toggle-small& + .uk-toggle-container {
+            &::after {
+                .transform(translateX(@toggle-small-width - @toggle-small-space - (@toggle-small-height - (@toggle-small-space * 2))));
+            }
+
+            &::before {
+                left: @toggle-small-space;
+            }
+        }
+
+        .uk-toggle-large& + .uk-toggle-container {
+            &::after {
+                .transform(translateX(@toggle-large-width - @toggle-large-space - (@toggle-large-height - (@toggle-large-space * 2))));
+            }
+
+            &::before {
+                left: @toggle-small-space;
+            }
+        }
+
+        &:not([disabled]) + .uk-toggle-container:hover {
+            background-color: lighten(@global-success-background, 5%);
+            .transition(all 0.2s ease-in-out);
+        }
+    }
+
+    & input[type="checkbox"]:disabled + .uk-toggle-container {
+        background-color: @global-default-background;
+        color: @global-disabled-color;
+        cursor: not-allowed;
+    }
+}
+
+@-webkit-keyframes run {
+    0% { left: 2px;}
+    100%{ left: 100% - 24px;}
+}

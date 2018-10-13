@@ -1,0 +1,51 @@
+//
+// Component:       Mixin
+// Description:     Defines mixins which are used across all components
+//
+// ========================================================================
+
+
+// Gradient
+// ========================================================================
+
+.gradient (@from: #fff, @to: #000, @dir: to bottom) {
+    background-color: @from;
+    background-image: -webkit-linear-gradient(@dir, @from, @to);
+    background-image: -moz-linear-gradient(@dir, @from, @to);
+    background-image: -o-linear-gradient(@dir, @from, @to);
+    background-image: -ms-linear-gradient(@dir, @from, @to);
+    background-image: linear-gradient(@dir, @from, @to);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@from', endColorstr='@to',GradientType=0);
+}
+
+.animation(@animation) {
+    -webkit-animation: @animation;
+    -moz-animation: @animation;
+    -ms-animation: @animation;
+    -o-animation: @animation;
+    animation: @animation;
+}
+
+.transition(@transition-option) {
+    -webkit-transition: @transition-option;
+    -moz-transition: @transition-option;
+    -ms-transition: @transition-option;
+    -o-transition: @transition-option;
+    transition: @transition-option;
+}
+
+.transform(@transform-option) {
+    -webkit-transform: @transform-option;
+    -moz-transform: @transform-option;
+    -ms-transform: @transform-option;
+    -o-transform: @transform-option;
+    transform: @transform-option;
+}
+
+.border-radius(@border-radius: @global-border-radius) {
+    -webkit-border-radius: @border-radius;
+    -moz-border-radius: @border-radius;
+    -ms-border-radius: @border-radius;
+    -o-border-radius: @border-radius;
+    border-radius: @border-radius;
+}

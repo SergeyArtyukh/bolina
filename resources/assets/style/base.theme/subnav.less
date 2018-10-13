@@ -1,0 +1,74 @@
+//
+// Component: Subnav
+//
+// ========================================================================
+
+.hook-subnav() {}
+
+.hook-subnav-item() {
+    font-size: @subnav-item-font-size;
+    text-transform: @subnav-item-text-transform;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+}
+
+.hook-subnav-item-hover() {}
+
+.hook-subnav-item-active() {}
+
+// Divider modifier
+// ========================================================================
+
+.hook-subnav-divider() {}
+
+// Pill modifier
+// ========================================================================
+
+.hook-subnav-pill-item() {
+    border-radius: @global-border-radius;
+}
+
+.hook-subnav-pill-item-hover() {}
+
+.hook-subnav-pill-item-onclick() {}
+
+.hook-subnav-pill-item-active() {
+    border: none;
+}
+
+// Disabled
+// ========================================================================
+
+.hook-subnav-item-disabled() {}
+
+// Miscellaneous
+// ========================================================================
+
+.hook-subnav-misc() {}
+
+.uk-subnav-pill.uk-tab > * > :first-child {
+    padding-top: @subnav-pill-item-padding-vertical + 2;
+    padding-bottom: @subnav-pill-item-padding-vertical + 2;
+}
+.uk-subnav-pill .uk-nav-header {
+    padding-left: @subnav-pill-item-padding-horizontal;
+    padding-right: @subnav-pill-item-padding-horizontal;
+}
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-subnav-item() {}
+.hook-inverse-subnav-item-hover() {}
+.hook-inverse-subnav-item-active() {}
+
+.hook-inverse-subnav-divider() {}
+
+.hook-inverse-subnav-pill-item() {}
+.hook-inverse-subnav-pill-item-hover() {}
+.hook-inverse-subnav-pill-item-onclick() {}
+.hook-inverse-subnav-pill-item-active() {}
+
+.hook-inverse-subnav-item-disabled() {}

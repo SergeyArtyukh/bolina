@@ -1,0 +1,54 @@
+//
+// Component: Tooltip
+//
+// ========================================================================
+
+.hook-tooltip() {
+    &::after {
+        content: '';
+        position: absolute;
+        border-width: @tooltip-corner-size;
+        border-style: solid;
+        border-color: transparent
+    }
+    &[class*="uk-tooltip-top"]::after {
+        border-top-color: @tooltip-background;
+        bottom: -@tooltip-corner-size * 2;
+    }
+    &[class*="uk-tooltip-bottom"]::after {
+        border-bottom-color: @tooltip-background;
+        top: -@tooltip-corner-size * 2;
+    }
+    &.uk-tooltip-top-center::after,
+    &.uk-tooltip-bottom-center::after {
+        left: 50%;
+        right: auto;
+        margin-left: -@tooltip-corner-size;
+    }
+    &.uk-tooltip-top-left::after,
+    &.uk-tooltip-bottom-left::after {
+        left: @tooltip-corner-offset;
+    }
+    &.uk-tooltip-top-right::after,
+    &.uk-tooltip-bottom-right::after {
+        right: @tooltip-corner-offset;
+    }
+    &.uk-tooltip-left-center::after,
+    &.uk-tooltip-right-center::after {
+        top: 50%;
+        margin-top: -@tooltip-corner-size;
+    }
+    &.uk-tooltip-left-center::after {
+        border-left-color: @tooltip-background;
+        right: -@tooltip-corner-size * 2;
+    }
+    &.uk-tooltip-right-center::after {
+        border-right-color: @tooltip-background;
+        left: -@tooltip-corner-size * 2;
+    }
+}
+
+// Miscellaneous
+// ========================================================================
+
+.hook-tooltip-misc() {}

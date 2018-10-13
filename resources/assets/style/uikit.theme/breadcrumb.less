@@ -1,0 +1,49 @@
+//
+// Component: Breadcrumb
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+
+// Component
+// ========================================================================
+
+.hook-breadcrumb() {}
+
+
+// Items
+// ========================================================================
+
+.hook-breadcrumb-item() {}
+
+.hook-breadcrumb-item-hover() {}
+
+.hook-breadcrumb-item-disabled() {}
+
+.hook-breadcrumb-item-active() {}
+
+.hook-breadcrumb-divider() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-breadcrumb-misc() {
+    .uk-breadcrumb.uk-breadcrumb-arrow > :nth-child(n+2):not(.uk-first-column)::before {
+        content: '→';
+        margin: 0 15px;
+    }
+}
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-breadcrumb-item() {}
+.hook-inverse-breadcrumb-item-hover() {}
+.hook-inverse-breadcrumb-item-disabled() {}
+.hook-inverse-breadcrumb-item-active() {}
+
+.hook-inverse-breadcrumb-divider() {}

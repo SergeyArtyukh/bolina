@@ -1,0 +1,107 @@
+//
+// Component: Table
+//
+// ========================================================================
+
+// Base
+// ========================================================================
+
+table {
+    border-spacing: 0;
+}
+table td {
+    padding: 0;
+}
+table td:not([valign]) {
+    vertical-align: top;
+}
+
+// Component
+// ========================================================================
+
+.hook-table-header-cell() {}
+
+.hook-table-cell() {}
+
+.hook-table-footer() {}
+
+.hook-table-caption() {}
+
+.hook-table-row-active() {}
+
+
+// Style modifiers
+// ========================================================================
+
+.hook-table-divider() {}
+
+.hook-table-striped() {
+    border-top: @table-striped-border-width solid @table-striped-border;
+    border-bottom: @table-striped-border-width solid @table-striped-border;
+}
+
+.hook-table-hover() {}
+
+// Table awesome
+.uk-table-awesome {
+    border-radius: @global-border-radius;
+    box-shadow: 0 0 0 1px @global-border;
+    background-color: @global-background;
+}
+    .uk-table-awesome .uk-table-caption th {
+        padding: 20px 15px;
+    }
+    .uk-table-awesome .uk-table-caption-subtitle {
+        font-size: 14px;
+        color: #ccd3da;
+        padding-left: 12px;
+        margin-left: 12px;
+        border-left: 1px solid @global-border;
+    }
+    .uk-table-awesome .uk-table-head {
+        background-color: #f5f8fa;
+        border-top: 1px soid @global-border;
+        border-bottom: 1px soid @global-border;
+    }
+        .uk-table-awesome .uk-table-head th {
+            font-size: 1rem;
+            text-transform: inherit;
+            color: #7f8fa4;
+            padding-top: @global-small-gutter - 2;
+            padding-bottom: @global-small-gutter - 2;
+        }
+
+// Size modifier
+// ========================================================================
+
+.hook-table-small() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-table-misc() {
+
+    .uk-table tbody tr {
+        -webkit-transition: background-color 0.1s linear;
+        transition: background-color 0.1s linear;
+    }
+
+}
+
+.uk-valign-middle td {
+    vertical-align: middle !important;
+}
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-table-header-cell() {}
+.hook-inverse-table-caption() {}
+.hook-inverse-table-row-active() {}
+.hook-inverse-table-divider() {}
+.hook-inverse-table-striped() {
+    border-top-color: @inverse-global-border;
+    border-bottom-color: @inverse-global-border;
+}
+.hook-inverse-table-hover() {}

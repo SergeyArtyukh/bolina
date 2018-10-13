@@ -1,0 +1,51 @@
+//
+// Component: Article
+//
+// ========================================================================
+
+.hook-article() {}
+
+// Adjacent sibling
+// ========================================================================
+
+.hook-article-adjacent() {}
+
+// Title
+// ========================================================================
+
+.hook-article-title() {}
+
+h3.uk-article-title {
+    font-size: @base-h3-font-size;
+    font-weight: 500;
+    line-height: @base-h3-line-height;
+}
+
+// Meta
+// ========================================================================
+
+.hook-article-meta() {
+
+    a { color: @article-meta-link-color; }
+
+    a:hover {
+        color: @article-meta-link-hover-color;
+        text-decoration: none;
+    }
+
+}
+
+.uk-article-title + .uk-article-meta {
+    margin-top: -10px;
+}
+
+// Miscellaneous
+// ========================================================================
+
+.hook-article-misc() {}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-article-meta() {}

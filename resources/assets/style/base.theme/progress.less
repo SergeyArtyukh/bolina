@@ -1,0 +1,35 @@
+//
+// Component: Progress
+//
+// ========================================================================
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.hook-progress() {
+    .border-radius;
+    overflow: hidden;
+    appearance: none;
+}
+
+progress[value].uk-progress-striped::-webkit-progress-value {
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 30px 30px;
+    -webkit-animation: uk-progress-stripes 2s linear infinite;
+    animation: uk-progress-stripes 2s linear infinite;
+}
+.uk-progress-striped {
+    -webkit-animation: uk-progress-stripes 2s linear infinite;
+    animation: uk-progress-stripes 2s linear infinite;
+}
+
+.hook-progress-bar() {}
+
+// Miscellaneous
+// ========================================================================
+
+.hook-progress-misc() {}
